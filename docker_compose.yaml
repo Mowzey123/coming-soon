@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  nginx:
+    build: 
+      context: .
+      args: 
+        - configuration=
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+     - enviroment=test
+    volumes:
+      -  /etc/ssl:/etc/ssl
+      - ./config:/etc/nginx/conf.d
